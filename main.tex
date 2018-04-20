@@ -1,0 +1,146 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Themes: Awesome-CV
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\newif\ifResume
+\newif\ifCoverLetter
+
+%%% Override text type, comment all for CV
+% \Resumetrue
+% \CoverLettertrue
+
+%%% Override a directory location for fonts(default: 'fonts/')
+\fontdir[fonts/]
+
+%%% Configure a directory location for sections
+\newcommand*{\sectiondir}{section/}
+
+%%% Override color
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+%% Color for highlight
+% Define your custom color if you don't like awesome colors
+\colorlet{awesome}{awesome-red}
+%\definecolor{awesome}{HTML}{CA63A8}
+%% Colors for text
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+%%% Override a separator for social informations in header(default: ' | ')
+%\headersocialsep[\quad\textbar\quad]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     3rd party packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Needed to divide into several files
+\usepackage{import}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Personal Data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Essentials
+\newcommand{\texttype}{Curriculum Vitae}
+
+\ifResume
+    \renewcommand{\texttype}{Resume}
+\fi
+\ifCoverLetter
+    \renewcommand{\texttype}{Cover Letter}
+\fi
+
+\newcommand{\fullname}{Fathurahman Ma'ruf Hudoarma}
+\name{\fullname}{}
+\address{Teja Town, 1 Sunia St., Majalengka, West Java 45468, Indonesia}
+\mobile{(+62) 812-2169-5520} 
+%%% Social
+\email{fathurmh@gmail.com}
+\homepage{fathurmh.github.io}
+\github{fathurmh}
+\linkedin{fathurmh}
+%%% Optionals
+% \position{Web Developer{\enskip\cdotp\enskip}Back-End Engineer}
+\quote{ }
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  {Company Recruitment Team}
+  {Google Inc.\\1600 Amphitheatre Parkway\\Mountain View, CA 94043}
+% The date on the letter, default is the date of compilation
+\letterdate{\today}
+% The title of the letter
+\lettertitle{Job Application for Software Engineer}
+% How the letter is opened
+\letteropening{Dear Mr./Ms./Dr. LastName,}
+% How the letter is closed
+\letterclosing{Sincerely,}
+% Any enclosures with the letter
+\letterenclosure[Attached]{Curriculum Vitae}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%% Make a header for CV with personal data
+\makecvheader
+
+%%% Make a footer for CV with three arguments(<left>, <center>, <right>)
+\makecvfooter
+    {\today}
+    {\fullname~~~·~~~\texttype}
+    {\ifCoverLetter \else \thepage \fi}
+
+%%% Print the title with above letter informations
+\ifCoverLetter
+    \makelettertitle
+\fi
+
+%%% Import contents
+\ifCoverLetter
+    \import{\sectiondir}{coverletter.tex}
+    \makeletterclosing
+\else
+    \ifResume
+        \import{\sectiondir}{summary.tex}
+        \import{\sectiondir}{experience.tex}
+        \import{\sectiondir}{education.tex}
+        \import{\sectiondir}{extracurricular.tex}
+        \import{\sectiondir}{honors.tex}
+        \import{\sectiondir}{committees.tex}
+    \else
+        \import{\sectiondir}{education.tex}
+        \import{\sectiondir}{skills.tex}
+        \import{\sectiondir}{experience.tex}
+        \import{\sectiondir}{extracurricular.tex}
+        \import{\sectiondir}{honors.tex}
+        \import{\sectiondir}{committees.tex}
+    \fi
+\fi
+
+
+\end{document}
