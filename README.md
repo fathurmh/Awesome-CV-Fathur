@@ -15,6 +15,7 @@ LaTeX template for your outstanding job application.
 
 ## How to use
 Import or download and upload to [**ShareLaTeX**](https://www.sharelatex.com).
+
 Uncomment line 27 or 28 in main.tex to see the wonder.
 
 ## Credit
